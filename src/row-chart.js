@@ -69,6 +69,8 @@ dc.rowChart = function(parent, chartGroup) {
         createElements(rows, _chart.group().all());
         removeElements(rows);
         updateElements(rows);
+        updateLabels(rows);
+        updateTitles(rows);
     }
 
     function createElements(rows, rowData) {
@@ -83,7 +85,6 @@ dc.rowChart = function(parent, chartGroup) {
         createTitles(rowEnter);
 
         createLabels(rowEnter);
-        updateLabels(rows);
     }
 
     function removeElements(rows) {
@@ -112,6 +113,14 @@ dc.rowChart = function(parent, chartGroup) {
     function createTitles(rowEnter) {
         if (_chart.renderTitle()) {
             rowEnter.append("title").text(function(d) {
+                return _chart.title()(d);
+            });
+        }
+    }
+
+    function updateTitles(rows) {
+        if (_chart.renderTitle()) {
+            rows.select("title").text(function(d) {
                 return _chart.title()(d);
             });
         }

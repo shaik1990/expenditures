@@ -3334,6 +3334,8 @@ dc.bubbleOverlay = function(root, chartGroup) {
         createElements(rows, _chart.group().all());
         removeElements(rows);
         updateElements(rows);
+        updateLabels(rows);
+        updateTitles(rows);
     }
 
     function createElements(rows, rowData) {
@@ -3348,7 +3350,6 @@ dc.bubbleOverlay = function(root, chartGroup) {
         createTitles(rowEnter);
 
         createLabels(rowEnter);
-        updateLabels(rows);
     }
 
     function removeElements(rows) {
@@ -3377,6 +3378,14 @@ dc.bubbleOverlay = function(root, chartGroup) {
     function createTitles(rowEnter) {
         if (_chart.renderTitle()) {
             rowEnter.append("title").text(function(d) {
+                return _chart.title()(d);
+            });
+        }
+    }
+
+    function updateTitles(rows) {
+        if (_chart.renderTitle()) {
+            rows.select("title").text(function(d) {
                 return _chart.title()(d);
             });
         }

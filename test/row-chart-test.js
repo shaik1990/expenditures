@@ -155,8 +155,7 @@ suite.addBatch({
                 assert.isEmpty(chart.select("span.filter").style("display"));
                 assert.equal(chart.select("span.filter").text(), "66");
             },
-            'should remove highlight if no row is selected': function (chart) {
-                chart.filterAll();
+            'should remove highlight if no row is selected': function (chart) {chart.filterAll();
                 chart.redraw();
                 chart.selectAll("g.row rect").each(function (d) {
                     assert.isTrue(d3.select(this).attr('class').indexOf('selected') < 0);
@@ -224,9 +223,35 @@ suite.addBatch({
             }
         },
 
+        'label & titles': {
+            topic: function (chart) {
+                chart = buildChart("pie-chart-label-title");
+                chart.render();
+                resetAllFilters();
+                return chart;
+            },
+
+            'filters should updates titles': function (chart) {
+                var oldTitle = chart.selectAll("g.row title")[0][0].text;
+
+                stateDimension.filter("Colorado");
+                chart.redraw();
+
+                var newTitle = chart.selectAll("g.row title")[0][0].text;
+
+                assert.notEqual(newTitle, oldTitle);
+            },
+
+
+            teardown: function (chart) {
+                resetAllFilters();
+                resetBody();
+            }
+        },
+
         'custom title & label generation': {
             topic: function (chart) {
-                var chart = buildChart("pie-chart-custom-label-title");
+                chart = buildChart("pie-chart-custom-label-title");
                 chart.title(function (d) { return "custom title"; })
                      .label(function (d) { return "custom label"; });
 
