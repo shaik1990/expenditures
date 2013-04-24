@@ -60,7 +60,7 @@ dc.rowChart = function(parent, chartGroup) {
                             .attr("transform", "translate(0, " + _chart.effectiveHeight() + ")");
         }
 
-        axis.transition().duration(_chart.transitionDuration()).select("g.axis").call(_xAxis);
+        axis.call(_xAxis);
     }
 
     function drawGridLines() {
