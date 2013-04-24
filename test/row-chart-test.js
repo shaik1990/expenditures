@@ -283,12 +283,12 @@ suite.addBatch({
         },
 
         'pei chart label and title with value accessor': {
-            topic: function () {
-                var chart = buildChart('pie-chart-default-label-title');
+            topic: function (chart) {
+                chart = buildChart('pie-chart-default-label-title');
                 chart.dimension(statusGroup)
                      .group(statusMultiGroup)
                      .valueAccessor(function (d) {
-                        return d.value.count;
+                        return 0;
                      })
                      .renderLabel(true).renderTitle(true);
                 chart.render();
@@ -299,7 +299,7 @@ suite.addBatch({
                 assert.equal(d3.select(chart.selectAll('text.row')[0][0]).text(), "F");
             },
             'default function should be used to dynamically generate title': function (chart) {
-                assert.equal(d3.select(chart.selectAll("g.row title")[0][0]).text(), "F: 5");
+                assert.equal(d3.select(chart.selectAll("g.row title")[0][0]).text(), "F: 0");
             },
 
             teardown: function (chart) {
@@ -310,7 +310,7 @@ suite.addBatch({
 
         'render with no label & title': {
             topic: function (chart) {
-                var chart = buildChart("pie-chart-no-label-title");
+                chart = buildChart("pie-chart-no-label-title");
                 chart.title(function (d) { return "custom title"; })
                      .label(function (d) { return "custom label"; })
                      .renderLabel(false)
@@ -323,6 +323,60 @@ suite.addBatch({
             'row label and title should not be created': function (chart) {
                 assert.equal(chart.selectAll("text.row")[0].length, 0);
                 assert.equal(chart.selectAll("g.row title")[0].length, 0);
+            },
+
+            teardown: function (chart) {
+                resetAllFilters();
+                resetBody();
+            }
+        },
+
+        'non elastic x axis': {
+            topic: function (chart) {
+                chart = buildChart("pie-chart-non-elastic-x-axis");
+
+                chart.elasticX(false);
+
+                chart.render();
+                return chart;
+            },
+
+            'x axis should not change when filtered': function (chart) {
+                var oldScaleRange = chart.xAxis().scale().range();
+
+                countryDimension.filter("CA");
+                chart.redraw();
+
+                var newScaleRange = chart.xAxis().scale().range();
+
+                assert.equal(oldScaleRange, newScaleRange);
+            },
+
+            teardown: function (chart) {
+                resetAllFilters();
+                resetBody();
+            }
+        },
+
+        'elastic x axis': {
+            topic: function (chart) {
+                chart = buildChart("pie-chart-elastic-x-axis");
+
+                chart.elasticX(true);
+
+                chart.render();
+                return chart;
+            },
+
+            'x axis should change when filtered': function (chart) {
+                var oldScaleRange = chart.xAxis().scale().range();
+
+                countryDimension.filter("CA");
+                chart.redraw();
+
+                var newScaleRange = chart.xAxis().scale().range();
+
+                assert.notEqual(oldScaleRange, newScaleRange);
             },
 
             teardown: function (chart) {
