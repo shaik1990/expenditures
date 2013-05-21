@@ -69,7 +69,7 @@
         <div class="clearfix"></div>
     </div>
 </div>
-
+<!--
 <div class="row">
     <div id="monthly-move-chart">
         <strong>Monthly Index Abs Move & Volume/500,000 Chart</strong> (Blue Line: Avg Index, Green Line: Index
@@ -85,6 +85,40 @@
     <div id="monthly-volume-chart">
     </div>
     <p class="muted pull-right" style="margin-right: 15px;">select a time range to zoom in</p>
+</div>-->
+<div class="row">    
+	<div id="spent0910">
+        <strong>$ Spent 2009-2010</strong>
+        <a class="reset" href="javascript:filterChart0910s.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <div class="clearfix"></div>
+    </div>
+	<div id="spent0910">
+        <strong>$ Spent 2010-2011</strong>
+        <a class="reset" href="javascript:filterChart1011s.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <div class="clearfix"></div>
+    </div>
+	<div id="spent0910">
+        <strong>$ Spent 2011-2012</strong>
+        <a class="reset" href="javascript:filterChart1112s.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div class="row">    
+	<div id="avail0910">
+        <strong>$ Available 2009-2010</strong>
+        <a class="reset" href="javascript:filterChart0910a.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <div class="clearfix"></div>
+    </div>
+	<div id="avail0910">
+        <strong>$ Available 2010-2011</strong>
+        <a class="reset" href="javascript:filterChart1011a.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <div class="clearfix"></div>
+    </div>
+	<div id="avail0910">
+        <strong>$ Available 2011-2012</strong>
+        <a class="reset" href="javascript:filterChart1112a.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+        <div class="clearfix"></div>
+    </div>
 </div>
 
 <div class="row">
@@ -127,12 +161,12 @@ var moveChart = dc.compositeChart("#monthly-move-chart");
 var volumeChart = dc.barChart("#monthly-volume-chart");
 var yearlyBubbleChart = dc.bubbleChart("#yearly-bubble-chart");
 
-var avail2009 = dc.barChart("#avail-2009");
-var spent2009 = dc.barChart("#spent-2009");
-var avail2010 = dc.barChart("#avail-2010");
-var spent2010 = dc.barChart("#spent-2010");
-var avail2011 = dc.barChart("#avail-2011");
-var spent2011 = dc.barChart("#spent-2011");
+var filterChart0910a = dc.barChart("#avail0910");
+var filterChart1011a = dc.barChart("#avail1011");
+var filterChart1112a = dc.barChart("#avail1112");
+var filterChart0910s = dc.barChart("#spent0910");
+var filterChart1011s = dc.barChart("#spent1011");
+var filterChart1112s = dc.barChart("#spent1112");
 
 // set dc.js version in title
 d3.selectAll("#version").text(dc.version);
@@ -222,11 +256,11 @@ d3.csv("csv/byvote.csv", function (data) {
                     .tickFormat(function (v) {
                         return v + "%";
                     });
-			filterChart0910a.width(420)
+			filterChart0910s.width(420)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
-                    .dimension(a0910dim)
-                    .group(a0910grp)
+                    .dimension(s0910dim)
+                    .group(s0910grp)
                     .elasticY(true)
                     .centerBar(true)
                     .gap(1)
@@ -237,11 +271,11 @@ d3.csv("csv/byvote.csv", function (data) {
                     .tickFormat(function (v) {
                         return v + "%";
                     });
-			filterChart1011a.width(420)
+			filterChart1011s.width(420)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
-                    .dimension(a1011dim)
-                    .group(a1011grp)
+                    .dimension(s1011dim)
+                    .group(s1011grp)
                     .elasticY(true)
                     .centerBar(true)
                     .gap(1)
@@ -252,11 +286,11 @@ d3.csv("csv/byvote.csv", function (data) {
                     .tickFormat(function (v) {
                         return v + "%";
                     });
-			filterChart1112a.width(420)
+			filterChart1112s.width(420)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
-                    .dimension(a1112dim)
-                    .group(a1112grp)
+                    .dimension(s1112dim)
+                    .group(s1112grp)
                     .elasticY(true)
                     .centerBar(true)
                     .gap(1)
