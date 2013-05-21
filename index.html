@@ -177,7 +177,7 @@ d3.csv("csv/byvote.csv", function (data) {
             });
 			s1112grp = s1112dim.group();
       		
-			filterChart0910.width(420)
+			filterChart0910a.width(420)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
                     .dimension(a0910dim)
@@ -192,7 +192,82 @@ d3.csv("csv/byvote.csv", function (data) {
                     .tickFormat(function (v) {
                         return v + "%";
                     });
-			//****************
+			filterChart1011a.width(420)
+                    .height(180)
+                    .margins({top: 10, right: 50, bottom: 30, left: 40})
+                    .dimension(a1011dim)
+                    .group(a1011grp)
+                    .elasticY(true)
+                    .centerBar(true)
+                    .gap(1)
+                    .round(dc.round.floor)
+                    .x(d3.scale.linear().domain([-25, 25]))
+                    .renderHorizontalGridLines(true)
+                    .xAxis()
+                    .tickFormat(function (v) {
+                        return v + "%";
+                    });
+			filterChart1112a.width(420)
+                    .height(180)
+                    .margins({top: 10, right: 50, bottom: 30, left: 40})
+                    .dimension(a1112dim)
+                    .group(a1112grp)
+                    .elasticY(true)
+                    .centerBar(true)
+                    .gap(1)
+                    .round(dc.round.floor)
+                    .x(d3.scale.linear().domain([-25, 25]))
+                    .renderHorizontalGridLines(true)
+                    .xAxis()
+                    .tickFormat(function (v) {
+                        return v + "%";
+                    });
+			filterChart0910a.width(420)
+                    .height(180)
+                    .margins({top: 10, right: 50, bottom: 30, left: 40})
+                    .dimension(a0910dim)
+                    .group(a0910grp)
+                    .elasticY(true)
+                    .centerBar(true)
+                    .gap(1)
+                    .round(dc.round.floor)
+                    .x(d3.scale.linear().domain([-25, 25]))
+                    .renderHorizontalGridLines(true)
+                    .xAxis()
+                    .tickFormat(function (v) {
+                        return v + "%";
+                    });
+			filterChart1011a.width(420)
+                    .height(180)
+                    .margins({top: 10, right: 50, bottom: 30, left: 40})
+                    .dimension(a1011dim)
+                    .group(a1011grp)
+                    .elasticY(true)
+                    .centerBar(true)
+                    .gap(1)
+                    .round(dc.round.floor)
+                    .x(d3.scale.linear().domain([-25, 25]))
+                    .renderHorizontalGridLines(true)
+                    .xAxis()
+                    .tickFormat(function (v) {
+                        return v + "%";
+                    });
+			filterChart1112a.width(420)
+                    .height(180)
+                    .margins({top: 10, right: 50, bottom: 30, left: 40})
+                    .dimension(a1112dim)
+                    .group(a1112grp)
+                    .elasticY(true)
+                    .centerBar(true)
+                    .gap(1)
+                    .round(dc.round.floor)
+                    .x(d3.scale.linear().domain([-25, 25]))
+                    .renderHorizontalGridLines(true)
+                    .xAxis()
+                    .tickFormat(function (v) {
+                        return v + "%";
+                    });
+            //****************
 			
             var yearlyDimension = ndx.dimension(function (d) {
                 return d3.time.year(d.dd);
