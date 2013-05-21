@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>dc.js - Dimensional Charting Javascript Library</title>
+    <title>Public Accounts of Canada - Data Browser</title>
 
     <meta charset="UTF-8">
 
@@ -25,48 +25,9 @@
 
 <div class="container">
 
-<h1>dc.js - Dimensional Charting Javascript Library v<span id="version"></span></h1>
+<!--<h1>dc.js - Dimensional Charting Javascript Library v<span id="version"></span></h1>-->
 
-<p>
-    dc.js is a javascript charting library with native <a
-        href="http://square.github.com/crossfilter/">crossfilter</a>
-    support and allowing highly efficient exploration on large multi-dimensional dataset (inspired by crossfilter's
-    demo). It leverages <a href="http://d3js.org/">d3</a> engine to render charts in css friendly svg format. Charts
-    rendered using dc.js are naturally data driven and reactive therefore providing instant feedback on user's
-    interaction. The main objective of this project is to provide an easy yet powerful javascript library which can be
-    utilized to perform data visualization and analysis in browser as well as on mobile device. For more information
-    please check out our <a href="https://github.com/NickQiZhu/dc.js/wiki">Wiki</a> and
-    <a href="https://github.com/NickQiZhu/dc.js/wiki/API">API Reference</a>. For your questions and answers please
-    try <a href="https://groups.google.com/forum/?fromgroups#!forum/dc-js-user-group">dc.js user group</a>.
-</p>
-
-<p>
-    Fork me @ <a href="https://github.com/NickQiZhu/dc.js">https://github.com/NickQiZhu/dc.js</a> and also feel free
-    to report any issue or request a new type of chart to be included in the next release.
-</p>
-
-<p>
-    The following charts provide a live example of dc.js used against Nasdaq 100 index for the last 27 years. (You
-    can run this example completely off-line). Although it is just an example, using it you can
-    already ask some quite interesting questions. If I am going to gamble whether Nasdaq 100 will gain or lose
-    tomorrow what is my chance? Is Friday or Monday the most unlucky day for investors? Is spring better than winter to
-    invest? Can you find the outliers? When did the outliers occur?
-
-    Public data source
-    <a href="http://pitrading.com/free_market_data.htm" target="_blank">PiTrading.com</a>.
-</p>
-
-<p>
-    Try it out or checkout other examples.
-
-<ul>
-    <li><a href="vc/index.html">US Venture Capital Landscape 2011 (choropleth chart, bubble chart)</a></li>
-    <li><a href="crime/index.html">Major Canadian City Crime Stats 1998-2011 (bubble overlay, bar chart, line chart)</a>
-    </li>
-</ul>
-</p>
-
-<h2>Nasdaq 100 Index 1985/11/01-2012/06/29</h2>
+<h2>Authorities and Actual Expenditures as per the Public Accounts of Canada (2009-10 to 2011-12)</h2>
 
 <div class="row">
     <div id="yearly-bubble-chart" class="dc-chart">
@@ -136,6 +97,17 @@
     <table class="table table-hover dc-data-table">
         <thead>
         <tr class="header">
+        	<!--
+        		<th>Organizations</th>	
+        		<th>Description</th>
+        		<th>Vote</th>
+        		<th>$ Available 2009-10</th>	
+        		<th>$ Spent 2009-10</th>	
+        		<th>$ Available 2010-11</th>	
+        		<th>$ Spent 2010-11</th>	
+        		<th>$ Available 2011-12</th>	
+        		<th>$ Spent 2011-12</th> 
+        	-->
             <th>Date</th>
             <th>Open</th>
             <th>Close</th>
@@ -155,14 +127,21 @@ var moveChart = dc.compositeChart("#monthly-move-chart");
 var volumeChart = dc.barChart("#monthly-volume-chart");
 var yearlyBubbleChart = dc.bubbleChart("#yearly-bubble-chart");
 
+var avail2009 = dc.barChart("#avail-2009");
+var spent2009 = dc.barChart("#spent-2009");
+var avail2010 = dc.barChart("#avail-2010");
+var spent2010 = dc.barChart("#spent-2010");
+var avail2011 = dc.barChart("#avail-2011");
+var spent2011 = dc.barChart("#spent-2011");
+
 // set dc.js version in title
 d3.selectAll("#version").text(dc.version);
 
 // load data from a csv file
-d3.csv("ndx.csv", function (data) {
+d3.csv("csv/byvote.csv", function (data) {
             // since its a csv file we need to format the data a bit
             var dateFormat = d3.time.format("%m/%d/%Y");
-            var numberFormat = d3.format(".2f");
+            var numberFormat = d3.format(" ,d"); 
 
             data.forEach(function (e) {
                 e.dd = dateFormat.parse(e.date);
@@ -172,6 +151,25 @@ d3.csv("ndx.csv", function (data) {
             // feed it through crossfilter
             var ndx = crossfilter(data);
             var all = ndx.groupAll();
+			
+			var Available_2009_10_dimension = ndx.dimension(function (d) {
+                return d.Available_2009_10(d.dd);
+            });
+			var Available_2010_11_dimension = ndx.dimension(function (d) {
+                return d.Available_2010_11(d.dd);
+            });
+			var Available_2011_12_dimension = ndx.dimension(function (d) {
+                return d.Available_2011_12(d.dd);
+            });
+            var Spent_2009_10_dimension = ndx.dimension(function (d) {
+                return d.Spent_2009_10(d.dd);
+            });
+			var Spent_2010_11_dimension = ndx.dimension(function (d) {
+                return d.Spent_2010_11(d.dd);
+            });
+			var Spent_2011_12_dimension = ndx.dimension(function (d) {
+                return d.Spent_2011_12(d.dd);
+            });
 
             var yearlyDimension = ndx.dimension(function (d) {
                 return d3.time.year(d.dd);
