@@ -333,7 +333,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .centerBar(true)
                     .gap(1)
                     .round(dc.round.floor)
-                    .xUnits(function(start, end, xDomain) {return 1000;};)                    
+                    .xUnits(function(start, end, xDomain) {return 1000;})                    
                     .x(d3.scale.linear().domain([d3.min(data, function(d) { return d.s1112dim; }),d3.max(data, function(d) { return d.s1112dim; })]).range([0, 210]))
                     .renderHorizontalGridLines(true)
                     .xAxis().ticks(4)
