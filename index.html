@@ -323,7 +323,8 @@ d3.csv("csv/byvote.csv", function (data) {
                     .tickFormat(function (v) {
                         return v + "$";
                     });
-			filterChart1112s.width(300)
+			/*filterChart1112s
+					.width(300)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
                     .dimension(s1112dim)
@@ -339,7 +340,22 @@ d3.csv("csv/byvote.csv", function (data) {
                     .xAxis().ticks(4)
                     .tickFormat(function (v) {
                         return v + "$";
-                    });
+                    });*/
+             filterChart1112s.width(300)
+                    .height(180)
+                    .margins({top: 10, right: 50, bottom: 30, left: 40})
+                    .dimension(s1112dim)
+                    .group(s1112grp)
+                    .elasticY(true)
+                    .centerBar(true)
+                    .gap(1)
+                    .round(dc.round.floor)
+                    .x(d3.scale.linear().domain([-3000000000, 30000000000]))
+                    .renderHorizontalGridLines(true)
+                    .xAxis()
+                    .tickFormat(function (v) {
+                        return v + "%";
+                    });        
             console.log(s1112dim);        
             console.log(s1112grp);        
             console.log(filterChart1112s);        
