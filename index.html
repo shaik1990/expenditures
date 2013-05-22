@@ -232,6 +232,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .elasticX(true)
                     .gap(1)
                     .round(dc.round.floor)
+                    .x(d3.scale.linear())
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -246,6 +247,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .elasticX(true)
                     .gap(1)
                     .round(dc.round.floor)
+                    .x(d3.scale.linear())
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -260,6 +262,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .elasticX(true)
                     .gap(1)
                     .round(dc.round.floor)
+                    .x(d3.scale.linear())
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -274,6 +277,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .elasticX(true)
                     .gap(1)
                     .round(dc.round.floor)
+                    .x(d3.scale.linear())
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -288,6 +292,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .elasticX(true)
                     .gap(1)
                     .round(dc.round.floor)
+                    .x(d3.scale.linear())
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -303,7 +308,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     //.centerBar(true)
                     .gap(1)
                     .round(dc.round.floor)
-                    //.x(d3.scale.linear().domain([-3250000000, 30000000000]))
+                    .x(d3.scale.linear())
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
