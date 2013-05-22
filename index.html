@@ -332,7 +332,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .dimension(ndx)
                     .group(all);
 
-            /*dc.dataTable(".dc-data-table")
+            dc.dataTable(".dc-data-table")
                     .dimension(description_dim)
                     .group(function (d) {
                         return d.Description;
@@ -375,7 +375,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .order(d3.ascending)
                     .renderlet(function (table) {
                         table.selectAll(".dc-table-group").classed("info", true);
-                    });*/
+                    });
 
             dc.renderAll();
             }
