@@ -335,7 +335,7 @@ d3.csv("csv/byvote.csv", function (data) {
             dc.dataTable(".dc-data-table")
                     .dimension(description_dim)
                     .group(function (d) {
-                        return d.Description;
+                        return d.Organizations;
                         //var format = d3.format(" ,d"); //02d
                         //return d.dd.getFullYear() + "/" + format((d.dd.getMonth() + 1));
                     })
