@@ -185,9 +185,6 @@ d3.csv("csv/byvote.csv", function (data) {
             	e.Spent_2009_10 = +e.Spent_2009_10;
             	e.Spent_2010_11 = +e.Spent_2010_11;
             	e.Spent_2011_12 = +e.Spent_2011_12;
-            	//e.Organizations =
-            	//e.Description =
-            	//e.Vote =
             	console.log(e);
                 //e.dd = dateFormat.parse(e.date);
                 //e.month = d3.time.month(e.dd); // pre-calculate month for better performance
@@ -200,27 +197,38 @@ d3.csv("csv/byvote.csv", function (data) {
 			var a0910dim = ndx.dimension(function (d) {
                 return d.Available_2009_10;
             });
-            a0910grp = a0910dim.group().reduceCount();
+            var a0910grp = a0910dim.group().reduceCount();
       		var a1011dim = ndx.dimension(function (d) {
                 return d.Available_2010_11;
             });
-			a1011grp = a1011dim.group().reduceCount();
+			var a1011grp = a1011dim.group().reduceCount();
       		var a1112dim = ndx.dimension(function (d) {
                 return d.Available_2011_12;
             });
-            a1112grp = a1112dim.group().reduceCount();
+            var a1112grp = a1112dim.group().reduceCount();
       		var s0910dim = ndx.dimension(function (d) {
                 return d.Spent_2009_10;
             });
-			s0910grp = s0910dim.group().reduceCount();
+			var s0910grp = s0910dim.group().reduceCount();
       		var s1011dim = ndx.dimension(function (d) {
                 return d.Spent_2010_11;
             });
-            s1011grp = s1011dim.group().reduceCount();
+            var s1011grp = s1011dim.group().reduceCount();
       		var s1112dim = ndx.dimension(function (d) {
                 return d.Spent_2011_12;
             });
-			s1112grp = s1112dim.group().reduceCount();
+			var s1112grp = s1112dim.group().reduceCount();
+      		
+      		var organization_dim = ndx.dimension(function (d) {
+                return d.Organizations;
+            });
+      		var description_dim = ndx.dimension(function (d) {
+                return d.Description;
+            });
+      		var vote_dim = ndx.dimension(function (d) {
+                return d.Vote;
+            });
+      		
       		//min= -3,219,731,000	
       		//max= 28,868,796,840
       		// domain([-3000000000,30000000000]);
@@ -236,7 +244,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .round(dc.round.floor)
                     .x(d3.scale.linear().domain([-3000000000,30000000000]))
                     .renderHorizontalGridLines(true)
-                    .xAxis()
+                    .xAxis().ticks(4)
                     .tickFormat(function (v) {
                         return v + "$";
                     });
@@ -252,7 +260,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .round(dc.round.floor)
                     .x(d3.scale.linear().domain([-3000000000,30000000000]))
                     .renderHorizontalGridLines(true)
-                    .xAxis()
+                    .xAxis().ticks(4)
                     .tickFormat(function (v) {
                         return v + "$";
                     });
@@ -268,7 +276,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .round(dc.round.floor)
                     .x(d3.scale.linear().domain([-3000000000,30000000000]))
                     .renderHorizontalGridLines(true)
-                    .xAxis()
+                    .xAxis().ticks(4)
                     .tickFormat(function (v) {
                         return v + "$";
                     });
@@ -284,7 +292,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .round(dc.round.floor)
                     .x(d3.scale.linear().domain([-3000000000,30000000000]))
                     .renderHorizontalGridLines(true)
-                    .xAxis()
+                    .xAxis().ticks(4)
                     .tickFormat(function (v) {
                         return v + "$";
                     });
@@ -300,7 +308,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .round(dc.round.floor)
                     .x(d3.scale.linear().domain([-3000000000,30000000000]))
                     .renderHorizontalGridLines(true)
-                    .xAxis()
+                    .xAxis().ticks(4)
                     .tickFormat(function (v) {
                         return v + "$";
                     });
@@ -316,7 +324,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .round(dc.round.floor)                    
                     .x(d3.scale.linear().domain([-3000000000,30000000000]))
                     .renderHorizontalGridLines(true)
-                    .xAxis()
+                    .xAxis().ticks(4)
                     .tickFormat(function (v) {
                         return v + "$";
                     });
@@ -325,29 +333,41 @@ d3.csv("csv/byvote.csv", function (data) {
                     .dimension(ndx)
                     .group(all);
 
-            /*dc.dataTable(".dc-data-table")
-                    .dimension(dateDimension)
-                    .group(function (d) {
+            dc.dataTable(".dc-data-table")
+                    .dimension(ndx)
+                    /*.group(function (d) {
                         var format = d3.format(" ,d"); //02d
                         return d.dd.getFullYear() + "/" + format((d.dd.getMonth() + 1));
-                    })
-                    .size(10)
+                    })*/
+                    .size(25)
                     .columns([
-                        function (d) {
-                            return d.date;
+                    	function (d) {
+                            return d.Organizations;
                         },
                         function (d) {
-                            return d.open;
+                            return d.Description;
                         },
                         function (d) {
-                            return d.close;
+                            return d.Vote;
                         },
                         function (d) {
-                            return numberFormat(d.close - d.open);
+                            return d.Available_2009_10;
                         },
                         function (d) {
-                            return d.volume;
+                            return d.Spent_2009_10;
                         }
+                        function (d) {
+                            return d.Available_2010_11;
+                        },
+                        function (d) {
+                            return d.Spent_2010_11;
+                        }
+                        function (d) {
+                            return d.Available_2011_12;
+                        },
+                        function (d) {
+                            return d.Spent_2011_12;
+                        }	
                     ])
                     .sortBy(function (d) {
                         return d.dd;
@@ -355,7 +375,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .order(d3.ascending)
                     .renderlet(function (table) {
                         table.selectAll(".dc-table-group").classed("info", true);
-                    });*/
+                    });
 
             dc.renderAll();
             }
