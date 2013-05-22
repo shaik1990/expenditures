@@ -370,7 +370,7 @@ d3.csv("csv/byvote.csv", function (data) {
                         }	
                     ])
                     .sortBy(function (d) {
-                        return d.dd;
+                        return d.Organizations;
                     })
                     .order(d3.ascending)
                     .renderlet(function (table) {
