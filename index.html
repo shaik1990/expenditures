@@ -188,6 +188,9 @@ d3.csv("csv/byvote.csv", function (data) {
             var ndx = crossfilter(data);
             var all = ndx.groupAll();
 			
+			console.var(ndx);
+			console.var(all);
+			
 			var a0910dim = ndx.dimension(function (d) {
                 return d.Available_2009_10;
             });
