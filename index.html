@@ -178,6 +178,7 @@ d3.csv("csv/byvote.csv", function (data) {
             var numberFormat = d3.format(" ,d"); 
 
             data.forEach(function (e) {
+            	console.log(e);
                 e.dd = dateFormat.parse(e.date);
                 e.month = d3.time.month(e.dd); // pre-calculate month for better performance
             });
