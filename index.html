@@ -215,6 +215,8 @@ d3.csv("csv/byvote.csv", function (data) {
       		var organization_dim = ndx.dimension(function (d) {
                 return d.Organizations;
             });
+            var organization_grp = organization_dim.group();
+      		
       		var description_dim = ndx.dimension(function (d) {
                 return d.Description;
             });
@@ -328,10 +330,11 @@ d3.csv("csv/byvote.csv", function (data) {
 
             dc.dataTable(".dc-data-table")
                     .dimension(ndx)
-                    /*.group(function (d) {
-                        var format = d3.format(" ,d"); //02d
-                        return d.dd.getFullYear() + "/" + format((d.dd.getMonth() + 1));
-                    })*/
+                    .group(function (d) {
+                        return d.Description;
+                        //var format = d3.format(" ,d"); //02d
+                        //return d.dd.getFullYear() + "/" + format((d.dd.getMonth() + 1));
+                    })
                     .size(25)
                     .columns([
                     	function (d) {
