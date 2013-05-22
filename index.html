@@ -169,7 +169,7 @@ d3.selectAll("#version").text(dc.version);
 d3.csv("csv/byvote.csv", function (data) {
             // since its a csv file we need to format the data a bit
             //var dateFormat = d3.time.format("%m/%d/%Y");
-            var numberFormat = d3.format(" ,d"); 
+            var numberFormat = d3.format(",d"); 
 
             data.forEach(function (e, i) {
             	e.index = i;
