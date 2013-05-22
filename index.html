@@ -28,7 +28,7 @@
 <!--<h1>dc.js - Dimensional Charting Javascript Library v<span id="version"></span></h1>-->
 
 <h2>Authorities and Actual Expenditures as per the Public Accounts of Canada (2009-10 to 2011-12)</h2>
-
+<!--
 <div class="row">
     <div id="yearly-bubble-chart" class="dc-chart">
         <strong>Yearly Performance</strong> (x: index gain, y: index gain(%), radius: fluctuation/index ratio, color:
@@ -69,7 +69,7 @@
         <div class="clearfix"></div>
     </div>
 </div>
-<!--
+
 <div class="row">
     <div id="monthly-move-chart">
         <strong>Monthly Index Abs Move & Volume/500,000 Chart</strong> (Blue Line: Avg Index, Green Line: Index
@@ -224,7 +224,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return v + "%";
+                        return v + "$";
                     });
 			filterChart1011a.width(420)
                     .height(180)
@@ -239,7 +239,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return v + "%";
+                        return v + "$";
                     });
 			filterChart1112a.width(420)
                     .height(180)
@@ -254,7 +254,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return v + "%";
+                        return v + "$";
                     });
 			filterChart0910s.width(420)
                     .height(180)
@@ -269,7 +269,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return v + "%";
+                        return v + "$";
                     });
 			filterChart1011s.width(420)
                     .height(180)
@@ -284,7 +284,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return v + "%";
+                        return v + "$";
                     });
 			filterChart1112s.width(420)
                     .height(180)
@@ -299,14 +299,14 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return v + "%";
+                        return v + "$";
                     });
                     
                     dc.dataCount(".dc-data-count")
                     .dimension(ndx)
                     .group(all);
 
-            dc.dataTable(".dc-data-table")
+            /*dc.dataTable(".dc-data-table")
                     .dimension(dateDimension)
                     .group(function (d) {
                         var format = d3.format(" ,d"); //02d
@@ -336,7 +336,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .order(d3.ascending)
                     .renderlet(function (table) {
                         table.selectAll(".dc-table-group").classed("info", true);
-                    });
+                    });*/
 
             dc.renderAll();
             }
