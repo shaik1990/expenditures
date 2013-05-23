@@ -359,9 +359,9 @@ d3.csv("csv/byvote.csv", function (data) {
                     //.xUnits(function(start, end, xDomain) {return 10000000;})                    
                     .x(d3.scale.linear().domain([-3000, 30000])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
-                    .xAxis().ticks(4)
+                    .xAxis().ticks(40)
                     .tickFormat(function (v) {
-                        return v + "M$";
+                        return Math.round(v / 1000, 2);
                     });        
             console.log(s1112dim);        
             console.log(s1112grp);        
