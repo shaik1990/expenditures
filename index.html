@@ -222,7 +222,7 @@ d3.csv("csv/byvote.csv", function (data) {
             	return Math.floor(d.Spent_2010_11 / 1000000); 
             });
             var s1112dim = ndx.dimension(function (d) {
-                return Math.round(d.Spent_2011_12, 1000000000);
+                return Math.round(d.Spent_2011_12 / 1000000000);
             });
             var s1112grp = s1112dim.group();
 
