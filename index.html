@@ -359,10 +359,10 @@ d3.csv("csv/byvote.csv", function (data) {
                     //.xUnits(function(start, end, xDomain) {return 10000000;})                    
                     .x(d3.scale.linear().domain([-3000, 30000])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
-                    //.xAxis()
-                    //.tickFormat(function (v) {
-                    //    return v + "$";
-                    //});        
+                    .xAxis().ticks(4)
+                    .tickFormat(function (v) {
+                        return v + "M$";
+                    });        
             console.log(s1112dim);        
             console.log(s1112grp);        
             console.log(filterChart1112s);        
