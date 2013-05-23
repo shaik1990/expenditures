@@ -357,7 +357,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .round(dc.round.floor)
                     //.x(d3.scale.linear().domain([d3.min(data, function(d) { return d.s1112dim; }),d3.max(data, function(d) { return d.s1112dim; })]).range([0, 210]))
                     //.xUnits(function(start, end, xDomain) {return 10000000;})                    
-                    .x(d3.scale.linear().domain([-3000, 30000])) //domain([-3000000000, 30000000000]))
+                    .x(d3.scale.linear().domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000, 30000])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
                     .xAxis().ticks(40)
                     .tickFormat(function (v) {
