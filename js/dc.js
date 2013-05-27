@@ -3281,6 +3281,8 @@ dc.bubbleOverlay = function(root, chartGroup) {
 
     var _xAxis = d3.svg.axis().orient("bottom");
 
+    var _xElasticity = false;
+
     _chart.doRender = function() {
         _xScale = d3.scale.linear().domain([0, d3.max(_chart.group().all(), _chart.valueAccessor())]).range([0, _chart.effectiveWidth()]);
 
@@ -3290,13 +3292,10 @@ dc.bubbleOverlay = function(root, chartGroup) {
             .append("g")
             .attr("transform", "translate(" + _chart.margins().left + "," + _chart.margins().top + ")");
 
-        _xAxis.scale(_xScale);
-
-        _g.append("g").attr("class", "axis")
-                        .attr("transform", "translate(0, " + _chart.effectiveHeight() + ")")
-                        .call(_xAxis);
-
+        prepareXScale();
+        prepareXAxis();
         drawGridLines();
+        drawXAxis();
         drawChart();
 
         return _chart;
@@ -3310,30 +3309,82 @@ dc.bubbleOverlay = function(root, chartGroup) {
         return _chart.keyAccessor()(d);
     });
 
-    function drawGridLines() {
-        var ticks = _xAxis.tickValues() ? _xAxis.tickValues() : _xScale.ticks(_xAxis.ticks()[0]);
+    function prepareXScale() {
+        _xScale = d3.scale.linear().domain([0, d3.max(_chart.group().all(), _chart.valueAccessor())]).range([0, _chart.effectiveWidth()]);
+    }
 
-        var gridLineG = _g.append("g")
+    function prepareXAxis() {
+        _xAxis.scale(_xScale);
+    }
+
+    function drawXAxis() {
+        var axis = _g.selectAll("g.axis");
+        if (axis.empty()) {
+            axis = _g.append("g")
+                            .attr("class", "axis")
+                            .attr("transform", "translate(0, " + _chart.effectiveHeight() + ")");
+        }
+        // try {
+        //     axis.transition(axis, _chart.transitionDuration()).call(_xAxis);
+        // } catch (e) {
+        //     console.log(e.message);
+        // }
+
+        axis.call(_xAxis);
+    }
+
+    function drawGridLines() {
+        var gridLineG = _g.selectAll("g.grid-line");
+        if (gridLineG.empty()) {
+            gridLineG_g = _g.append("g")
                           .attr("class", "grid-line vertical");
+        }
+
+        var ticks = _xAxis.tickValues() ? _xAxis.tickValues() : _xScale.ticks(_xAxis.ticks()[0]);
 
         var lines = gridLineG.selectAll("line")
                              .data(ticks);
 
+        // enter
         var linesGEnter = lines.enter()
                                .append("line")
                                .attr("x1", function (d) { return _xScale(d); })
                                .attr("y1", function (d) { return 0; })
                                .attr("x2", function (d) { return _xScale(d); })
-                               .attr("y2", function (d) { return _chart.effectiveHeight(); });
+                               .attr("y2", function (d) { return _chart.effectiveHeight(); })
+                               .attr("opacity", 0);
+
+        dc.transition(linesGEnter, _chart.transitionDuration())
+            .attr("opacity", 1);
+
+        // update
+        dc.transition(lines, _chart.transitionDuration())
+            .attr("x1", function (d) { return _xScale(d); })
+            .attr("y1", function (d) { return 0; })
+            .attr("x2", function (d) { return _xScale(d); })
+            .attr("y2", function (d) { return _chart.effectiveHeight(); });
+
+        // exit
+        lines.exit().remove();
     }
 
     function drawChart() {
+        if (_chart.elasticX()) {
+            prepareXScale();
+            prepareXAxis();
+            drawGridLines();
+            drawXAxis();
+        }
+
+
         var rows = _g.selectAll("g." + _rowCssClass)
                      .data(_chart.group().all());
 
         createElements(rows, _chart.group().all());
         removeElements(rows);
         updateElements(rows);
+        updateLabels(rows);
+        updateTitles(rows);
     }
 
     function createElements(rows, rowData) {
@@ -3348,7 +3399,6 @@ dc.bubbleOverlay = function(root, chartGroup) {
         createTitles(rowEnter);
 
         createLabels(rowEnter);
-        updateLabels(rows);
     }
 
     function removeElements(rows) {
@@ -3377,6 +3427,14 @@ dc.bubbleOverlay = function(root, chartGroup) {
     function createTitles(rowEnter) {
         if (_chart.renderTitle()) {
             rowEnter.append("title").text(function(d) {
+                return _chart.title()(d);
+            });
+        }
+    }
+
+    function updateTitles(rows) {
+        if (_chart.renderTitle()) {
+            rows.select("title").text(function(d) {
                 return _chart.title()(d);
             });
         }
@@ -3444,6 +3502,12 @@ dc.bubbleOverlay = function(root, chartGroup) {
 
     _chart.isSelectedRow = function (d) {
         return _chart.filter() == _chart.keyAccessor()(d);
+    };
+
+    _chart.elasticX = function (_) {
+        if (!arguments.length) return _xElasticity;
+        _xElasticity = _;
+        return _chart;
     };
 
     return _chart.anchor(parent, chartGroup);
