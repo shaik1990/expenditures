@@ -272,10 +272,10 @@ d3.csv("csv/byvote.csv", function (data) {
                     .x(d3.scale.linear().domain([1,11])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
                     .xAxis()
-                    .tickValues(['1','10','100','1t','10t','100t','1M','10M','100M','1B','10B',]);
-                    //.tickFormat(function (v) {
-                    //    return Math.round(v);
-                    //});
+                    //.tickValues(['1','10','100','1t','10t','100t','1M','10M','100M','1B','10B',]);
+                    .tickFormat(function (v) {
+                        return Math.round(v);
+                    });
              filterChart0910s.width(300)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
@@ -288,7 +288,10 @@ d3.csv("csv/byvote.csv", function (data) {
                     .x(d3.scale.linear().domain([1,11])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
                     .xAxis()
-                    .tickValues(['1','10','100','1t','10t','100t','1M','10M','100M','1B','10B',]);
+                    //.tickValues(['1','10','100','1t','10t','100t','1M','10M','100M','1B','10B',]);
+                    .tickFormat(function (v) {
+                        return Math.round(v);
+                    });
                       
               filterChart1011a.width(300)
                     .height(180)
@@ -374,22 +377,22 @@ d3.csv("csv/byvote.csv", function (data) {
                             return d.Vote;
                         },
                         function (d) {
-                            return numberFormat2(d.Available_2009_10);
+                            return numberFormat(d.Available_2009_10);
                         },
                         function (d) {
-                            return numberFormat2(d.Spent_2009_10);
+                            return numberFormat(d.Spent_2009_10);
                         },
                         function (d) {
-                            return numberFormat2(d.Available_2010_11);
+                            return numberFormat(d.Available_2010_11);
                         },
                         function (d) {
-                            return numberFormat2(d.Spent_2010_11);
+                            return numberFormat(d.Spent_2010_11);
                         },
                         function (d) {
-                            return numberFormat2(d.Available_2011_12);
+                            return numberFormat(d.Available_2011_12);
                         },
                         function (d) {
-                            return numberFormat2(d.Spent_2011_12);
+                            return numberFormat(d.Spent_2011_12);
                         }	
                     ])
                     .sortBy(function (d) {
