@@ -170,6 +170,7 @@ d3.csv("csv/byvote.csv", function (data) {
             // since its a csv file we need to format the data a bit
             //var dateFormat = d3.time.format("%m/%d/%Y");
             var numberFormat = d3.format("d"); 
+			var numberFormat2 = d3.format(",s"); 
 
             data.forEach(function (e, i) {
             	e.index = i;
@@ -256,10 +257,9 @@ d3.csv("csv/byvote.csv", function (data) {
                     .x(d3.scale.log().nice().domain([1,30000])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
                     .xAxis()
-                    .tickFormat(10);
-                    //.tickFormat(5, function (v) {
-                    //    return Math.round(v);
-                    //});
+                    .tickFormat(5, function (v) {
+                        return numberFormat2(Math.round(v));
+                    });
              filterChart0910s.width(300)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
@@ -273,10 +273,9 @@ d3.csv("csv/byvote.csv", function (data) {
                     .x(d3.scale.log().nice().domain([1,30000])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
                     .xAxis()
-                    .tickFormat(10);
-                    //.tickFormat(5, function (v) {
-                    //    return Math.round(v);
-                    //});  
+                    .tickFormat(5, function (v) {
+                        return numberFormat2(Math.round(v));
+                    });  
               filterChart1011a.width(300)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
