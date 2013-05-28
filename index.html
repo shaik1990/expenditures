@@ -170,7 +170,7 @@ d3.csv("csv/byvote.csv", function (data) {
             // since its a csv file we need to format the data a bit
             //var dateFormat = d3.time.format("%m/%d/%Y");
             var numberFormat = d3.format("d"); 
-			var numberFormat2 = d3.format(",s"); 
+			var numberFormat2 = d3.format("s"); 
 
             data.forEach(function (e, i) {
             	e.index = i;
@@ -271,9 +271,8 @@ d3.csv("csv/byvote.csv", function (data) {
                     .x(d3.scale.linear().domain([1,11])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
                     .xAxis()
-                    //.tickValues(['1','10','100','1t','10t','100t','1M','10M','100M','1B','10B',]);
                     .tickFormat(function (v) {
-                        return Math.round(v);
+                        return numberFormat2(Math.power(10,v));
                     });
              filterChart0910s.width(300)
                     .height(180)
@@ -289,7 +288,8 @@ d3.csv("csv/byvote.csv", function (data) {
                     .xAxis()
                     //.tickValues(['1','10','100','1t','10t','100t','1M','10M','100M','1B','10B',]);
                     .tickFormat(function (v) {
-                        return Math.round(v);
+                        return numberFormat2(Math.power(10,v));
+                        //return Math.round(v);
                     });
                       
               filterChart1011a.width(300)
@@ -305,7 +305,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return Math.round(v);
+                        return numberFormat2(Math.power(10,v));                        
                     });
              filterChart1011s.width(300)
                     .height(180)
@@ -320,7 +320,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return Math.round(v);
+                        return numberFormat2(Math.power(10,v));
                     });    
              filterChart1112a.width(300)
                     .height(180)
@@ -335,7 +335,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return Math.round(v);
+                        return numberFormat2(Math.power(10,v));
                     });
              filterChart1112s.width(300)
                     .height(180)
@@ -350,7 +350,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return Math.round(v);
+                        return numberFormat2(Math.power(10,v));
                     });        
             
             dc.dataCount(".dc-data-count")
