@@ -169,7 +169,7 @@ d3.selectAll("#version").text(dc.version);
 d3.csv("csv/byvote.csv", function (data) {
             // since its a csv file we need to format the data a bit
             //var dateFormat = d3.time.format("%m/%d/%Y");
-            var numberFormat = d3.format("d"); 
+            var numberFormat = d3.format(",d"); 
 			var numberFormat2 = d3.format(",s"); 
 
             data.forEach(function (e, i) {
@@ -190,37 +190,50 @@ d3.csv("csv/byvote.csv", function (data) {
             var all = ndx.groupAll();
 			
 			var a0910dim = ndx.dimension(function (d) {
-				return Math.log(d.Available_2009_10) / Math.LN10;
+				return d.Available_2009_10;
+				//return Math.log(d.Available_2009_10) / Math.LN10;
                 //return Math.floor(d.Available_2009_10 / 1000000);
             });
-            var a0910grp = a0910dim.group(function(v) { return Math.floor(v); });
+            var a0910grp = a0910dim.group(function(v) { 
+            	return Math.floor(Math.log(v) / Math.LN10); 
+            });
       		//var a0910grp = a0910dim.group();
       		
       		var s0910dim = ndx.dimension(function (d) {
-                return Math.log(d.Spent_2009_10) / Math.LN10;
+                return d.Spent_2009_10;
             });
-            var s0910grp = s0910dim.group(function(v) { return Math.floor(v); });
+            var s0910grp = s0910dim.group(function(v) { 
+            	return Math.floor(Math.log(v) / Math.LN10); 
+            });
       		//var s0910grp = s0910dim.group();
 			
 			var a1011dim = ndx.dimension(function (d) {
-                return Math.log(d.Available_2010_11) / Math.LN10;
+                return d.Available_2010_11;
             });
-            var a1011grp = a1011dim.group(function(v) { return Math.floor(v); });
+            var a1011grp = a1011dim.group(function(v) { 
+            		return Math.floor(Math.log(v) / Math.LN10); 
+            });
       		
       		var s1011dim = ndx.dimension(function (d) {
-                return Math.log(d.Spent_2010_11) / Math.LN10;
+                return d.Spent_2010_11;
             });
-            var s1011grp = s1011dim.group(function(v) { return Math.floor(v); });
-			
+            var s1011grp = s1011dim.group(function(v) { 
+            	return Math.floor(Math.log(v) / Math.LN10); 
+            });
+      		
             var a1112dim = ndx.dimension(function (d) {
-                return Math.log(d.Available_2011_12) / Math.LN10;
+                return d.Available_2011_12;
             });
-            var a1112grp = a1112dim.group(function(v) { return Math.floor(v); });
+            var a1112grp = a1112dim.group(function(v) { 
+            	return Math.floor(Math.log(v) / Math.LN10); 
+            });
       		
       		var s1112dim = ndx.dimension(function (d) {
-                return Math.log(d.Spent_2011_12) / Math.LN10;
+                return d.Spent_2011_12;
             });
-            var s1112grp = s1112dim.group(function(v) { return Math.floor(v); });
+            var s1112grp = s1112dim.group(function(v) { 
+            	return Math.floor(Math.log(v) / Math.LN10); 
+            });
       		
       		//console.log(s0910dim);
 			//console.log(s0910grp.size());
