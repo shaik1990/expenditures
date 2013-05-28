@@ -256,9 +256,10 @@ d3.csv("csv/byvote.csv", function (data) {
                     .x(d3.scale.log().nice().domain([1,30000])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
                     .xAxis()
-                    .tickFormat(5, function (v) {
-                        return Math.round(v);
-                    });
+                    .tickFormat(10);
+                    //.tickFormat(5, function (v) {
+                    //    return Math.round(v);
+                    //});
              filterChart0910s.width(300)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
@@ -272,9 +273,10 @@ d3.csv("csv/byvote.csv", function (data) {
                     .x(d3.scale.log().nice().domain([1,30000])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
                     .renderHorizontalGridLines(true)
                     .xAxis()
-                    .tickFormat(5, function (v) {
-                        return Math.round(v);
-                    });  
+                    .tickFormat(10);
+                    //.tickFormat(5, function (v) {
+                    //    return Math.round(v);
+                    //});  
               filterChart1011a.width(300)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
