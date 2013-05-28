@@ -259,7 +259,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .xAxis()
                     .ticks(10)
                     .tickFormat(function (v) {
-                        return numberFormat2(Math.round(v));
+                        return Math.round(v);
                     });
              filterChart0910s.width(300)
                     .height(180)
@@ -276,7 +276,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .xAxis()
                     .ticks(10)
                     .tickFormat(function (v) {
-                        return numberFormat2(Math.round(v));
+                        return Math.round(v);
                     });  
               filterChart1011a.width(300)
                     .height(180)
