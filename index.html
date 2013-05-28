@@ -173,10 +173,10 @@ d3.csv("csv/byvote.csv", function (data) {
 
             data.forEach(function (e, i) {
             	e.index = i;
-            	e.Available_2009_10 = numberFormat(e.Available_2009_10);
+            	e.Available_2009_10 = numberFormat(e.Available_2009_10/1000000000);
             	e.Available_2010_11 = numberFormat(e.Available_2010_11);
             	e.Available_2011_12 = numberFormat(e.Available_2011_12);
-            	e.Spent_2009_10 = numberFormat(e.Spent_2009_10);
+            	e.Spent_2009_10 = numberFormat(Math.floor(e.Spent_2009_10/1000000000));
             	e.Spent_2010_11 = numberFormat(e.Spent_2010_11);
             	e.Spent_2011_12 = numberFormat(e.Spent_2011_12);
             	console.log(e);
@@ -189,12 +189,12 @@ d3.csv("csv/byvote.csv", function (data) {
             var all = ndx.groupAll();
 			
 			var a0910dim = ndx.dimension(function (d) {
-                return Math.floor(d.Available_2009_10 / 1000000000);
+                return Math.floor(d.Available_2009_10);
             });
             var a0910grp = a0910dim.group();
       		
       		var s0910dim = ndx.dimension(function (d) {
-                return Math.floor(d.Spent_2009_10 / 1000000000);
+                return d.Spent_2009_10;
             });
             var s0910grp = s0910dim.group();
 			
