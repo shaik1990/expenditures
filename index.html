@@ -198,11 +198,7 @@ d3.csv("csv/byvote.csv", function (data) {
             });
             var s0910grp = s0910dim.group();
 			
-			console.log(s0910dim);
-			console.log(s0910grp.size());
-            console.log(s0910grp.all());
-            
-            var a1011dim = ndx.dimension(function (d) {
+			var a1011dim = ndx.dimension(function (d) {
                 return Math.floor(d.Available_2010_11 / 1000000000);
             });
             var a1011grp = a1011dim.group();
@@ -221,6 +217,16 @@ d3.csv("csv/byvote.csv", function (data) {
                 return Math.floor(d.Spent_2011_12 / 1000000000);
             });
             var s1112grp = s1112dim.group();
+      		
+      		//console.log(s0910dim);
+			//console.log(s0910grp.size());
+            console.log(a0910grp.all());
+            console.log(s0910grp.all());
+            console.log(a1011grp.all());
+            console.log(s1011grp.all());
+            console.log(a1112grp.all());
+            console.log(s1112grp.all());
+            
       		
       		var organization_dim = ndx.dimension(function (d) {
                 return d.Organizations;
