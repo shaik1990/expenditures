@@ -36,98 +36,87 @@
 <h2>testing...</h2>
 
  <section class="demo">
+ 	<div class="row">
+	    <div>
+	        <div class="dc-data-count">
+	            <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
+	                href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+	        </div>
+	    </div>
+    </div>
 	<div class="gridster ready">
           <ul>
-            <li data-row="1" data-col="1" data-sizex="2" data-sizey="1"></li>
-            <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="4">
+			    <div id="org-chart">
+			        <strong>Government organization</strong>
+			        <a class="reset" href="javascript:orgChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+			        <div class="clearfix"></div>
+			    </div>            	
+            </li>
+            <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+	            <div id="spent0910">
+			        <strong>$ Spent 2009-2010</strong>
+			        <a class="reset" href="javascript:filterChart0910s.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+			        <div class="clearfix"></div>
+			    </div>
+            </li>
+            <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+				<div id="avail0910">
+			        <strong>$ Available 2009-2010</strong>
+			        <a class="reset" href="javascript:filterChart0910a.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+			        <div class="clearfix"></div>
+			    </div>
+            </li>
+            <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+				<div id="spent1011">
+				        <strong>$ Spent 2010-2011</strong>
+				        <a class="reset" href="javascript:filterChart1011s.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+				        <div class="clearfix"></div>
+				</div>            	            	
+            </li>
+            <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
+				<div id="avail1011">
+			        <strong>$ Available 2010-2011</strong>
+			        <a class="reset" href="javascript:filterChart1011a.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+			        <div class="clearfix"></div>
+			    </div>            	
+            </li>
+			<li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+				<div id="spent1112">
+			        <strong>$ Spent 2011-2012</strong>
+			        <a class="reset" href="javascript:filterChart1112s.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+			        <div class="clearfix"></div>
+			    </div>            	
+            </li>
+            <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
+			 	<div id="avail1112">
+			        <strong>$ Available 2011-2012</strong>
+			        <a class="reset" href="javascript:filterChart1112a.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+			        <div class="clearfix"></div>
+			    </div>           	
+            </li>
+            <li data-row="4" data-col="2" data-sizex="2" data-sizey="3">
+            	<table class="table table-hover dc-data-table">
+			        <thead>
+			        <tr class="header">
+			        		<th>Organizations</th>	
+			        		<th>Description</th>
+			        		<th>Vote</th>
+			        		<th>$ Available 2009-10</th>	
+			        		<th>$ Spent 2009-10</th>	
+			        		<th>$ Available 2010-11</th>	
+			        		<th>$ Spent 2010-11</th>	
+			        		<th>$ Available 2011-12</th>	
+			        		<th>$ Spent 2011-12</th> 
+			        </tr>
+			        </thead>
+			    </table>
+            </li>
 
-            <li data-row="3" data-col="2" data-sizex="2" data-sizey="1"></li>
-            <li data-row="1" data-col="2" data-sizex="2" data-sizey="2"></li>
 
-            <li class="try" data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
-            <li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
-            <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
-
-            <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
-            <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
-
-            <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
-            <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
           </ul>
     </div>
 </section>
-<div class="row">
-    <div>
-        <div class="dc-data-count">
-            <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
-                href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
-        </div>
-    </div>
-</div>
-<div class="row">    
-	<div id="spent0910">
-        <strong>$ Spent 2009-2010</strong>
-        <a class="reset" href="javascript:filterChart0910s.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-        <div class="clearfix"></div>
-    </div>
-	<div id="spent1011">
-        <strong>$ Spent 2010-2011</strong>
-        <a class="reset" href="javascript:filterChart1011s.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-        <div class="clearfix"></div>
-    </div>
-	<div id="spent1112">
-        <strong>$ Spent 2011-2012</strong>
-        <a class="reset" href="javascript:filterChart1112s.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-        <div class="clearfix"></div>
-    </div>
-</div>
-<div class="row">    
-	<div id="avail0910">
-        <strong>$ Available 2009-2010</strong>
-        <a class="reset" href="javascript:filterChart0910a.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-        <div class="clearfix"></div>
-    </div>
-	<div id="avail1011">
-        <strong>$ Available 2010-2011</strong>
-        <a class="reset" href="javascript:filterChart1011a.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-        <div class="clearfix"></div>
-    </div>
-	<div id="avail1112">
-        <strong>$ Available 2011-2012</strong>
-        <a class="reset" href="javascript:filterChart1112a.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-        <div class="clearfix"></div>
-    </div>
-</div>
-<div class="row">
-    <div id="org-chart">
-        <strong>Government organization</strong>
-        <a class="reset" href="javascript:orgChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
-        <div class="clearfix"></div>
-    </div>
-</div>
-<div class="row">
-    <div>
-        <div class="dc-data-count">
-            <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
-                href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
-        </div>
-    </div>
-    <table class="table table-hover dc-data-table">
-        <thead>
-        <tr class="header">
-        		<th>Organizations</th>	
-        		<th>Description</th>
-        		<th>Vote</th>
-        		<th>$ Available 2009-10</th>	
-        		<th>$ Spent 2009-10</th>	
-        		<th>$ Available 2010-11</th>	
-        		<th>$ Spent 2010-11</th>	
-        		<th>$ Available 2011-12</th>	
-        		<th>$ Spent 2011-12</th> 
-        </tr>
-        </thead>
-    </table>
-</div>
 
 <script type="text/javascript">
 /*var gainOrLossChart = dc.pieChart("#gain-loss-chart");
@@ -345,7 +334,7 @@ d3.csv("csv/byvote.csv", function (data) {
                         //var format = d3.format(" ,d"); //02d
                         //return d.dd.getFullYear() + "/" + format((d.dd.getMonth() + 1));
                     })
-                    .size(700)
+                    .size(600)
                     .columns([
                     	function (d) {
                             return d.Organizations;
@@ -392,8 +381,8 @@ d3.csv("csv/byvote.csv", function (data) {
 		  $(function(){
 		    gridster = $(".gridster > ul").gridster({
 		        widget_margins: [10, 10],
-		        widget_base_dimensions: [140, 140],
-		        min_cols: 6
+		        widget_base_dimensions: [300, 180],
+		        min_cols: 4
 		    }).data('gridster');
 		
 		  });
