@@ -196,8 +196,7 @@ d3.csv("csv/byvote.csv", function (data) {
             	e.Spent_2009_10 = numberFormat(e.Spent_2009_10);
             	e.Spent_2010_11 = numberFormat(e.Spent_2010_11);
             	e.Spent_2011_12 = numberFormat(e.Spent_2011_12);
-            	//console.log(e);
-                //e.dd = dateFormat.parse(e.date);
+            	//e.dd = dateFormat.parse(e.date);
                 //e.month = d3.time.month(e.dd); // pre-calculate month for better performance
             });
 
@@ -249,16 +248,6 @@ d3.csv("csv/byvote.csv", function (data) {
             var s1112grp = s1112dim.group(function(v) { 
             	return Math.floor(v); 
             });
-      		
-      		//console.log(s0910dim);
-			//console.log(s0910grp.size());
-            console.log(a0910grp.all());
-            console.log(s0910grp.all());
-            console.log(a1011grp.all());
-            console.log(s1011grp.all());
-            console.log(a1112grp.all());
-            console.log(s1112grp.all());
-            
       		
       		var organization_dim = ndx.dimension(function (d) {
                 return d.Organizations;
