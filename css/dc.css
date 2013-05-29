@@ -220,6 +220,9 @@
 }
 
 .dc-chart g.row text {
-    fill: white;
+    fill: black;
+    font-size: 10px;
+    /*fill: white;
     font-size: 12px;
+    */
 }
