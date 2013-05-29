@@ -268,7 +268,7 @@ d3.csv("csv/byvote.csv", function (data) {
 			    .group(organization_grp) // set group
 			    .margins({top: 20, left: 10, right: 10, bottom: 20})
 			    .colors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
-			    .title(function(d) { return d.data.key + "(" + Math.floor(d.data.value / all.value() * 100) + "%)"; })
+			    //.title(function(d) { return d.data.key + "(" + Math.floor(d.data.value / all.value() * 100) + "%)"; })
 			    .renderTitle(true)
 			    .xAxis().ticks(4);
 			      		
