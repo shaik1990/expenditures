@@ -326,7 +326,8 @@ section header .m_txt{
 /* Gridster styles */
 .demo {
     margin: 3em 0;
-    padding: 7.5em 0 5.5em;
+    padding: 1em 0 1em;
+    /*padding: 7.5em 0 5.5em;*/
     background: white; /*#004756;*/
 }
 
