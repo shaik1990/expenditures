@@ -267,18 +267,10 @@ d3.csv("csv/byvote.csv", function (data) {
 			    .height(480) // (optional) define chart height, :default = 200
 			    .dimension(organization_dim) // set dimension
 			    .group(organization_grp) // set group
-			    // (optional) define margins
 			    .margins({top: 20, left: 10, right: 10, bottom: 20})
-			    // (optional) define color array for slices
 			    .colors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
-			    // (optional) set gap between rows, default is 5
-			    .gap(5)
-			    // (optional) by default pie chart will use group.key and group.value as its title
-			    // you can overwrite it with a closure
 			    .title(function(d) { return d.data.key + "(" + Math.floor(d.data.value / all.value() * 100) + "%)"; })
-			    // (optional) whether chart should render titles, :default = false
 			    .renderTitle(true)
-			    // (optional) specify the number of ticks for the X axis
 			    .xAxis().ticks(4);
 			      		
 			 //Available_2009_10	Spent_2009_10	Available_2010_11	Spent_2010_11	Available_2011_12	Spent_2011_12
