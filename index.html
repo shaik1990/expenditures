@@ -87,6 +87,14 @@
     </div>
     <p class="muted pull-right" style="margin-right: 15px;">select a time range to zoom in</p>
 </div>-->
+<div class="row">
+    <div>
+        <div class="dc-data-count">
+            <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
+                href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+        </div>
+    </div>
+</div>
 <div class="row">    
 	<div id="spent0910">
         <strong>$ Spent 2009-2010</strong>
@@ -161,6 +169,9 @@ var filterChart1112a = dc.barChart("#avail1112");
 var filterChart0910s = dc.barChart("#spent0910");
 var filterChart1011s = dc.barChart("#spent1011");
 var filterChart1112s = dc.barChart("#spent1112");
+
+//var dayOfWeekChart = dc.rowChart("#day-of-week-chart");
+
 
 // set dc.js version in title
 d3.selectAll("#version").text(dc.version);
@@ -273,7 +284,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return numberFormat2(Math.power(10,v));
+                        return numberFormat2(Math.pow(10,v));
                     });
              filterChart0910s.width(300)
                     .height(180)
@@ -289,7 +300,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .xAxis()
                     //.tickValues(['1','10','100','1t','10t','100t','1M','10M','100M','1B','10B',]);
                     .tickFormat(function (v) {
-                        return numberFormat2(Math.power(10,v));
+                        return numberFormat2(Math.pow(10,v));
                         //return Math.round(v);
                     });
                       
@@ -306,7 +317,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return numberFormat2(Math.power(10,v));                        
+                        return numberFormat2(Math.pow(10,v));                        
                     });
              filterChart1011s.width(300)
                     .height(180)
@@ -321,7 +332,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return numberFormat2(Math.power(10,v));
+                        return numberFormat2(Math.pow(10,v));
                     });    
              filterChart1112a.width(300)
                     .height(180)
@@ -336,7 +347,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return numberFormat2(Math.power(10,v));
+                        return numberFormat2(Math.pow(10,v));
                     });
              filterChart1112s.width(300)
                     .height(180)
@@ -351,7 +362,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
-                        return numberFormat2(Math.power(10,v));
+                        return numberFormat2(Math.pow(10,v));
                     });        
             
             dc.dataCount(".dc-data-count")
