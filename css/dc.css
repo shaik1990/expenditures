@@ -213,12 +213,12 @@
 }
 
 .dc-chart g.row rect {
-    fill-opacity: 0.5;
+    fill-opacity: 0.3;
     cursor: pointer;
 }
 
 .dc-chart g.row rect:hover {
-    fill-opacity: 0.9;
+    fill-opacity: 0.8;
 }
 
 .dc-chart g.row text {
