@@ -262,8 +262,7 @@ d3.csv("csv/byvote.csv", function (data) {
             });
       		
       		
-      		orgChart("#org-chart")
-			    .width(280) // (optional) define chart width, :default = 200
+      		orgChart.width(280) // (optional) define chart width, :default = 200
 			    .height(480) // (optional) define chart height, :default = 200
 			    .dimension(organization_dim) // set dimension
 			    .group(organization_grp) // set group
