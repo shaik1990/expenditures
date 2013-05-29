@@ -3269,7 +3269,7 @@ dc.bubbleOverlay = function(root, chartGroup) {
 
     var _labelOffsetX = 10;
 
-    var _labelOffsetY = 15;
+    var _labelOffsetY = 10; //15;
 
     var _gap = 5;
 

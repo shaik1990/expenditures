@@ -172,7 +172,9 @@
     font-weight: bold;
 }
 
-.dc-data-table {}
+.dc-data-table {
+	font-size: 75%;
+}
 
 .dc-chart g.state{
     cursor: pointer;
@@ -219,6 +221,13 @@
     fill-opacity: 0.9;
 }
 
+.dc-chart g.row text {
+    fill: grey;
+    font-size: 10px;
+    /*fill: white;
+    font-size: 12px;
+    */
+}
 .dc-chart g.row text {
     fill: grey;
     font-size: 10px;
