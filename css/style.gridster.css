@@ -337,8 +337,8 @@ section header .m_txt{
 
 .gridster {
    width: 1100px; /*940px;*/
+   height: 2000px;
     margin: 0 auto;
-
     opacity: .8;
 
     -webkit-transition: opacity .6s;
