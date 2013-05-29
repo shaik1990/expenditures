@@ -284,13 +284,14 @@ d3.csv("csv/byvote.csv", function (data) {
                 return d.Vote;
             });
       		
+      		console.log(organization_grp.all());
       		
       		orgChart.width(280) // (optional) define chart width, :default = 200
-			    .height(480) // (optional) define chart height, :default = 200
+			    .height(1480) // (optional) define chart height, :default = 200
 			    .dimension(organization_dim) // set dimension
 			    .group(organization_grp) // set group
 			    .margins({top: 20, left: 10, right: 10, bottom: 20})
-			    .colors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
+			    //.colors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
 			    //.title(function(d) { return d.data.key + "(" + Math.floor(d.data.value / all.value() * 100) + "%)"; })
 			    .renderTitle(true)
 			    .xAxis().ticks(4);
