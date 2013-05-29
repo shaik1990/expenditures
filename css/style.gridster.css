@@ -21,7 +21,7 @@ ul, ol {
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-body {
+/*body {
     background-color: #EEEEEE;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -33,7 +33,7 @@ a {
     color: #004756;
     text-decoration: underline;
     font-weight: bold;
-}
+}*/
 
 .wrapper {
     margin: 0 auto;
