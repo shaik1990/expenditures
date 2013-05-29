@@ -224,8 +224,6 @@ d3.csv("csv/byvote.csv", function (data) {
                 return d.Vote;
             });
       		
-      		console.log(organization_grp.all());
-      		
       		orgChart.width(280) // (optional) define chart width, :default = 200
 			    .height(1480) // (optional) define chart height, :default = 200
 			    .dimension(organization_dim) // set dimension
@@ -385,24 +383,22 @@ d3.csv("csv/byvote.csv", function (data) {
             dc.renderAll();
             }
 		);
+		
+		var gridster;
+
+		  $(function(){
+		    gridster = $(".gridster > ul").gridster({
+		        widget_margins: [10, 10],
+		        widget_base_dimensions: [140, 140],
+		        min_cols: 6
+		    }).data('gridster');
+		
+		  });
 </script>
 <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="js/jquery.gridster.js" type="text/javascript" charset="utf-8"></script>
 
-<script type="text/javascript">
-  var gridster;
-
-  $(function(){
-
-    gridster = $(".gridster > ul").gridster({
-        widget_margins: [10, 10],
-        widget_base_dimensions: [140, 140],
-        min_cols: 6
-    }).data('gridster');
-
-  });
-</script>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+<!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
 <script src="js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
