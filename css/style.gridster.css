@@ -4,7 +4,7 @@
 
 *  {
   margin: 0;
-  padding: 0;
+  padding: 4;/*0;*/
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
@@ -373,15 +373,6 @@ section header .m_txt{
     border-radius: 0!important;
     background: rgba(255,255,255,.2)!important;
 }
-
-
-
-
-
-
-
-
-
 
 
 article,
