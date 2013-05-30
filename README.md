@@ -1,5 +1,7 @@
 ## Data Vizualization for Public Accounts of Canada 2009-2012
 
+Try this app [here](http://spenditures.ca/).
+
 This page provides a tool for exploring the expenditures of the federal government during 
 three fiscal year periods, 2009/10, 2010/11, 2011/12. The data is provided by the Treasury 
 Board of Canada at [this page](http://www.tbs-sct.gc.ca/ems-sgd/aegc-adgc-eng.asp). The data here corresponds to the spreadsheet titled 'Authorities 
