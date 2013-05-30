@@ -3,7 +3,8 @@
 This page provides a tool for exploring the expenditures of the federal government during 
 three fiscal year periods, 2009/10, 2010/11, 2011/12. The data is provided by the Treasury 
 Board of Canada at [this page](http://www.tbs-sct.gc.ca/ems-sgd/aegc-adgc-eng.asp). The data here corresponds to the spreadsheet titled 'Authorities 
-and Expenditures by vote'. A news report about the data release can be found [here](http://globalnews.ca/news/502224/new-database-will-allow-canadians-to-track-government-spending-data/).
+and Expenditures by vote'. Data license information [here](http://www.data.gc.ca/default.asp?lang=En&n=46D15882-1). 
+A news report about the data release can be found [here](http://globalnews.ca/news/502224/new-database-will-allow-canadians-to-track-government-spending-data/).
 
 ### Features
 
@@ -22,4 +23,4 @@ and makes use of the following libraries.
  
 ### Feedback and bugs
 
-Please post questions and bug report to the [issue queue](https://github.com/tedstrauss/expenditures/issues).
+Please post questions and bug reports to the [issue queue](https://github.com/tedstrauss/expenditures/issues).
