@@ -76,14 +76,13 @@
 	Notice a bug? Report it <a href='http://tedstrauss.github.io/expenditures/issues'>here</a>.
 	This page was created by <a href="mailto:ted@trudat.co?Subject=Expenditures%20dashboard">Ted Strauss</a> using only wholesome ingredients <a href='http://d3js.org/'>d3.js</a>, <a href='http://nickqizhu.github.io/dc.js/'>dc.js</a>, <a href='http://square.github.io/crossfilter/'>crossfilter.js</a>, and <a href='http://gridster.net/'>gridster.js</a>.</p>
 	
-<h3>Budget data explorer</h3>
+<h3>Data explorer</h3>
 <h4>
 	<div class="dc-data-count">
         <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
     </div>
 </h4>
  <section class="demo">
-	
  	<div class="gridster ready">
 	      <ul>
             <li data-row="1" data-col="1" data-sizex="1" data-sizey="12">
@@ -152,8 +151,6 @@
 			        </thead>
 			    </table>
             </li>
-
-
           </ul>
     </div>
 </section>
@@ -179,7 +176,6 @@ d3.selectAll("#version").text(dc.version);
 // load data from a csv file
 d3.csv("csv/byvote.csv", function (data) {
             // since its a csv file we need to format the data a bit
-            //var dateFormat = d3.time.format("%m/%d/%Y");
             var numberFormat = d3.format("d"); 
 			var numberFormat2 = d3.format("s"); 
 			var numberFormat3 = d3.format(",d"); 
@@ -192,8 +188,6 @@ d3.csv("csv/byvote.csv", function (data) {
             	e.Spent_2009_10 = numberFormat(e.Spent_2009_10);
             	e.Spent_2010_11 = numberFormat(e.Spent_2010_11);
             	e.Spent_2011_12 = numberFormat(e.Spent_2011_12);
-            	//e.dd = dateFormat.parse(e.date);
-                //e.month = d3.time.month(e.dd); // pre-calculate month for better performance
             });
 
             // feed it through crossfilter
@@ -205,43 +199,37 @@ d3.csv("csv/byvote.csv", function (data) {
             });
             var a0910grp = a0910dim.group(function(v) { 
             	return Math.floor(v); 
-            });
-      		
+            });      		
       		var s0910dim = ndx.dimension(function (d) {
                 return Math.log(d.Spent_2009_10) / Math.LN10;
             });
             var s0910grp = s0910dim.group(function(v) { 
             	return Math.floor(v); 
-            });
-      		
+            });      		
 			var a1011dim = ndx.dimension(function (d) {
                 return Math.log(d.Available_2010_11) / Math.LN10;
             });
             var a1011grp = a1011dim.group(function(v) { 
-            		return Math.floor(v); 
+            	return Math.floor(v); 
             });
-      		
       		var s1011dim = ndx.dimension(function (d) {
                 return Math.log(d.Spent_2010_11) / Math.LN10;
             });
             var s1011grp = s1011dim.group(function(v) { 
             	return Math.floor(v); 
             });
-      		
             var a1112dim = ndx.dimension(function (d) {
                 return Math.log(d.Available_2011_12) / Math.LN10;
             });
             var a1112grp = a1112dim.group(function(v) { 
             	return Math.floor(v); 
             });
-      		
       		var s1112dim = ndx.dimension(function (d) {
                 return Math.log(d.Spent_2011_12) / Math.LN10;
             });
             var s1112grp = s1112dim.group(function(v) { 
             	return Math.floor(v); 
             });
-      		
       		var organization_dim = ndx.dimension(function (d) {
                 return d.Organizations;
             });
@@ -264,7 +252,6 @@ d3.csv("csv/byvote.csv", function (data) {
 			    .renderLabel(true)
 			    .renderTitle(true)
 			    .xAxis().ticks(4);
-			      		
 			 filterChart0910a.width(300)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
@@ -295,7 +282,6 @@ d3.csv("csv/byvote.csv", function (data) {
                     .tickFormat(function (v) {
                         return numberFormat2(Math.pow(10,v));
                     });
-                      
               filterChart1011a.width(300)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
@@ -409,7 +395,6 @@ d3.csv("csv/byvote.csv", function (data) {
 		);
 		
 		var gridster;
-
 		  $(function(){
 		    gridster = $(".gridster > ul").gridster({
 		        widget_margins: [4, 4],
