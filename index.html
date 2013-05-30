@@ -260,17 +260,11 @@ d3.csv("csv/byvote.csv", function (data) {
 			    .group(organization_grp) // set group
 			    .margins({top: 20, left: 10, right: 10, bottom: 20})
 			    .colors(['#D462FF', '#736AFF', '#92C7C7', '#595454', '#E3319D', '#FF00FF', '#666362', '#E56E94', '#3090C7', '#8B31C7', '#C8BBBE', '#342D7E', '#646060', '#2554C7', '#E238EC', '#1569C7', '#CFECEC', '#544E4F', '#728FCE', '#3EA99F', '#7F38EC', '#737CA1', '#7D0541', '#8EEBEC', '#736F6E', '#4C4646', '#6A287E', '#565051', '#46C7C7', '#F6358A', '#1589FF', '#7FFFD4', '#810541', '#38ACEC', '#4A4344', '#3BB9FF', '#4E4848', '#9AFEFF', '#C031C7', '#2B60DE', '#B93B8F', '#6D7B8D', '#15317E', '#8467D7', '#737CA1', '#41627E', '#EBDDE2', '#4863A0', '#5F5A59', '#BDEDFF', '#C6DEFF', '#504A4B', '#667C26', '#726E6D', '#348781', '#48CCCD', '#7E587E', '#307D7E', '#6698FF', '#306EFF', '#153E7E', '#357EC7', '#646D7E', '#AFDCEC', '#254117', '#A23BEC', '#CA226B', '#50EBEC', '#C12283', '#4E9258', '#B7CEEC', '#B4CFEC', '#F0F8FF', '#347235', '#E9CFEC', '#E4287C', '#FCDFFF', '#95B9C7', '#157DEC', '#6D6968', '#6960EC', '#41383C', '#78c7c7', '#7D053F', '#6E6A6B', '#F535AA', '#79BAEC', '#C6AEC7', '#D2B9D3', '#B048B5', '#7D1B7E', '#87AFC7', '#2B3856', '#56A5EC', '#657383', '#82CAFF', '#488AC7', '#F9B7FF', '#F52887', '#747170', '#F433FF', '#9172EC', '#F6358A', '#43C6DB', '#57FEFF', '#52F3FF', '#82CAFA', '#25587E', '#43BFC7', '#6C2DC7', '#616D7E', '#4C7D7E', '#F0FFFF', '#617C58', '#566D7E', '#8D38C9', '#7D0552', '#B041FF', '#C45AEC', '#306754', '#98AFC7', '#347C2C', '#151B54', '#4E387E', '#2B547E', '#A0CFEC', '#806D7E', '#717D7D', '#800517', '#00FFFF', '#E4317F', '#696565', '#461B7E', '#5E7D7E', '#D16587', '#2B65EC', '#463E3F', '#4EE2EC', '#E3E4FA', '#ADDFFF', '#FDEEF4', '#5E767E', '#4C787E', '#387C44', '#E0FFFF', '#5E5A80', '#C38EC7', '#C2DFFF', '#893BFF', '#7A5DC7', '#C12869', '#4E8975', '#463E41', '#571B7E', '#8E35EF', '#151B8D', '#842DCE', '#F778A1', '#E6A9EC', '#77BFC7', '#625D5D', '#659EC7', '#9E7BFF', '#25383C', '#C25A7C', '#3B9C9C', '#5CB3FF', '#A74AC7', '#7E354D', '#5C5858', '#AFC7C7', '#C12267'])
-			    //.colors(['#3182bd', '#6baed6', '#9ecae1', '#c6dbef', '#dadaeb'])
-			    //.title(function(d) { return d.data.key + "(" + Math.floor(d.data.value / all.value() * 100) + "%)"; })
 			    .gap(1)
-			    //.labelOffSetX(20)
 			    .renderLabel(true)
 			    .renderTitle(true)
 			    .xAxis().ticks(4);
 			      		
-			 //Available_2009_10	Spent_2009_10	Available_2010_11	Spent_2010_11	Available_2011_12	Spent_2011_12
-			 //min -2702M	-2702M	-3072M	-3072M	-3219M	-3219M
-			 //max 27003M	27003M	27863M	27863M	28868M	28868M
 			 filterChart0910a.width(300)
                     .height(180)
                     .margins({top: 10, right: 50, bottom: 30, left: 40})
@@ -280,7 +274,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .centerBar(true)
                     .gap(3)
                     .round(dc.round.floor)
-                    .x(d3.scale.linear().domain([1,11])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
+                    .x(d3.scale.linear().domain([1,11])) 
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -295,13 +289,11 @@ d3.csv("csv/byvote.csv", function (data) {
                     .centerBar(true)
                     .gap(3)
                     .round(dc.round.floor)
-                    .x(d3.scale.linear().domain([1,11])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
+                    .x(d3.scale.linear().domain([1,11])) 
                     .renderHorizontalGridLines(true)
                     .xAxis()
-                    //.tickValues(['1','10','100','1t','10t','100t','1M','10M','100M','1B','10B',]);
                     .tickFormat(function (v) {
                         return numberFormat2(Math.pow(10,v));
-                        //return Math.round(v);
                     });
                       
               filterChart1011a.width(300)
@@ -313,7 +305,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .centerBar(true)
                     .gap(3)
                     .round(dc.round.floor)
-                    .x(d3.scale.linear().domain([1,11])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
+                    .x(d3.scale.linear().domain([1,11])) 
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -328,7 +320,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .centerBar(true)
                     .gap(3)
                     .round(dc.round.floor)
-                    .x(d3.scale.linear().domain([1,11])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
+                    .x(d3.scale.linear().domain([1,11])) 
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -343,7 +335,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .centerBar(true)
                     .gap(3)
                     .round(dc.round.floor)
-                    .x(d3.scale.linear().domain([1,11])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
+                    .x(d3.scale.linear().domain([1,11])) 
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -358,7 +350,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .centerBar(true)
                     .gap(3)
                     .round(dc.round.floor)
-                    .x(d3.scale.linear().domain([1,11])) //domain([d3.min(data, function(d) { return d.s0910dim; }),d3.max(data, function(d) { return d.s0910dim; })])) //domain([-3000000000, 30000000000]))
+                    .x(d3.scale.linear().domain([1,11])) 
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -373,8 +365,6 @@ d3.csv("csv/byvote.csv", function (data) {
                     .dimension(description_dim)
                     .group(function (d) {
                         return d.Organizations;
-                        //var format = d3.format(" ,d"); //02d
-                        //return d.dd.getFullYear() + "/" + format((d.dd.getMonth() + 1));
                     })
                     .size(600)
                     .columns([
