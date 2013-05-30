@@ -6,14 +6,12 @@ three fiscal year periods, 2009/10, 2010/11, 2011/12. The data is provided by th
 Board of Canada at [this page](http://www.tbs-sct.gc.ca/ems-sgd/aegc-adgc-eng.asp). The data here corresponds to the spreadsheet titled 'Authorities 
 and Expenditures by vote'. A news report about the data release can be found [here](http://globalnews.ca/news/502224/new-database-will-allow-canadians-to-track-government-spending-data/).
 
-Features
-========
+## Features
 
 The data browser displays distribution of data over the principle data fields, and lets
 the user filter content by interacting with the charts. A table displays raw values.
 
-Implementation
-============== 
+## Implementation
 
 The app is a fork of the dc.js [example page](http://nickqizhu.github.io/dc.js/),
 and makes use of the following libraries.
@@ -23,7 +21,6 @@ and makes use of the following libraries.
  - [crossfilter.js](http://square.github.io/crossfilter/)
  - [gridster.js](http://gridster.net/)
  
-Feedback and bugs
-=================
+## Feedback and bugs
 
 Please post questions and bug report to the [issue queue](https://github.com/tedstrauss/expenditures/issues).
