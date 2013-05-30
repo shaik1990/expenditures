@@ -54,7 +54,7 @@
 		</tbody>
 	</table>
 	<p>
-	This page provides a tool for exploring the expenditures of the Federal government during three fiscal year periods, 2009/10, 2010/11, 2011/12.
+	This page provides a tool for exploring the expenditures of the federal government during three fiscal year periods, 2009/10, 2010/11, 2011/12.
 	The data is provided by the Treasury Board of Canada at <a href='http://www.tbs-sct.gc.ca/ems-sgd/aegc-adgc-eng.asp'>this page</a>. 
 	The data here corresponds to the spreadsheet titled 'Authorities and Expenditures by vote'. A news report about the data release can
 	be found <a href='http://globalnews.ca/news/502224/new-database-will-allow-canadians-to-track-government-spending-data/'>here</a>.	
@@ -63,10 +63,11 @@
 	<p>The graphs below show the distribution of the budget items across government departments, and over increasing $ amounts.
 	By clicking on the charts you can filter the data, and see the list of actual budget items in the table below.
 	Note that the size of the bars in the charts corresponds to the number of budget items, not the amount of dollars.</p> 
-	<p>In the long graph on the right side is the list of all government bodies receiving funds.
-	The six bar charts in the center show the distribution of money spent and allocated during the three fiscal years covered.
-	The horizontal axes (x-axis) show the <strong>$ amount</strong> of budget items, increasing by factors of 10, i.e. 10, 100, 1000, 10000, 100000... (i.e. logarithmically).
-	The abbreviations on the x-axis are <em>k</em> thousands, <em>M</em> millions, <em>G</em> billions
+	<p>In the long graph on the left side is the list of all government bodies receiving funds. 
+	Click any name to filter the budget items to just that government body.</p>
+	<p>The six bar charts in the center show the distribution of money spent and allocated during the three fiscal years covered.
+	The horizontal axes (x-axis) show the <strong>$ amount</strong> of budget items, increasing by factors of 10, i.e. 10, 100, 1000, 10000, 100000, etc.
+	The abbreviations on the x-axis are <em>k</em> thousands, <em>M</em> millions, <em>G</em> billions.
 	The vertical axes (y-axis) shows the <strong>number</strong> of budget items having those values.</p> 
 	<p>You can select a range on these center charts by clicking and dragging the mouse, and then slide the range around to see the values on all the charts update simultaneously.</p>
 	<p><strong>What do you think?</strong></p>
@@ -75,11 +76,10 @@
 	Notice a bug? Report it <a href='https://github.com/tedstrauss/dc.js/issues'>here</a>.
 	This page was created by <a href="mailto:ted@trudat.co?Subject=Treasury%20board%20dashboard">Ted Strauss</a> using only wholesome ingredients <a href='http://d3js.org/'>d3.js</a>, <a href='http://nickqizhu.github.io/dc.js/'>dc.js</a>, <a href='http://square.github.io/crossfilter/'>crossfilter.js</a>, and <a href='http://gridster.net/'>gridster.js</a>.</p>
 	
-<h4>Data explorer</h4>
+<h3>Data explorer</h3>
 <h4>
 	<div class="dc-data-count">
-        <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
-            href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+        <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
     </div>
 </h4>
  <section class="demo">
@@ -158,6 +158,9 @@
     </div>
 </section>
 </div>
+<div class="span2">
+<img src="img/maple.jpg"/>
+</div>	
 </div>
 </div>
 <script type="text/javascript">
