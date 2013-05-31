@@ -205,13 +205,13 @@ d3.csv("csv/byvote.csv", function (data) {
             var all = ndx.groupAll();
 			
 			var a0910dim = ndx.dimension(function (d) {
-				return Math.log(d.Available_2009_10) / Math.LN10;
+				return d.Available_2009_10 > 0 ? (Math.log(d.Available_2009_10) / Math.LN10) : -1 * (Math.log(d.Available_2009_10) / Math.LN10);
             });
             var a0910grp = a0910dim.group(function(v) { 
             	return Math.floor(v); 
             });      		
       		var s0910dim = ndx.dimension(function (d) {
-                return Math.log(d.Spent_2009_10) / Math.LN10;
+                return d.Spent_2009_10 > 0 ? Math.log(d.Spent_2009_10) / Math.LN10 : -1 * (Math.log(d.Spent_2009_10) / Math.LN10);
             });
             var s0910grp = s0910dim.group(function(v) { 
             	return Math.floor(v); 
@@ -271,7 +271,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .centerBar(true)
                     .gap(3)
                     .round(dc.round.floor)
-                    .x(d3.scale.linear().domain([0,11])) 
+                    .x(d3.scale.linear().domain([-6,11])) 
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
@@ -286,7 +286,7 @@ d3.csv("csv/byvote.csv", function (data) {
                     .centerBar(true)
                     .gap(3)
                     .round(dc.round.floor)
-                    .x(d3.scale.linear().domain([0,11])) 
+                    .x(d3.scale.linear().domain([-6,11])) 
                     .renderHorizontalGridLines(true)
                     .xAxis()
                     .tickFormat(function (v) {
